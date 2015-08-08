@@ -6,9 +6,9 @@ var Person = Backbone.Model.extend({
   defaults: {
     firstName: '',
     lastName: '',
-    eMail: '',
+    email: ''
+  },
 
-    // url vs url root
-    url: 'http://tiny-lr.herokuapp.com/collection/jc-form'
-  }
+  // url vs url root
+  urlRoot: 'http://tiny-lr.herokuapp.com/collection/jc-form'
 });

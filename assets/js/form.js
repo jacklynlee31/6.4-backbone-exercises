@@ -10,7 +10,24 @@ var FormView = Backbone.View.extend({
   },
 
   events: {
-    'click .submit': 'submitForm'
+    'form .submit': 'submitForm'
+  },
+
+  submitForm: function(ev) {
+    ev.preventDefault();
+
+    var firstName = this.$('#firstName').val();
+    var lastName = this.$('#lastName').val();
+    var email = this.$('#e-mail').val();
+
+    this.model.save({firstName: firstName, lastName: lastName, email: email});
+
+    this.$('#firstName').val('');
+    this.$('#lastName').val('');
+    this.$('#e-mail').val('');
+  },
+
+  onSubmit: function(ev) {
   },
 
   render: function() {
@@ -18,26 +35,7 @@ var FormView = Backbone.View.extend({
     this.$el.html(html);
 
     return this;
-  },
-
-  submitForm: function() {
-    var _this = this;
-    this.$el.submit(function() {
-      _this.submit();
-
-      //not a function?
-    });
   }
+
 });
 
-// var AppView = Backbone.View.extend({
-//   template: AppTemplates.app,
-
-//   el: '#target',
-
-//   render: function() {
-//     var html = this.template;
-//     var _this = this;
-//   }
-
-// });
