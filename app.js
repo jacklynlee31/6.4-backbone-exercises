@@ -7,8 +7,10 @@ AppTemplates['form'] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"ma
     + alias3(((helper = (helper = helpers['first-name'] || (depth0 != null ? depth0['first-name'] : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"first-name","hash":{},"data":data}) : helper)))
     + "\n    <p>Last Name:</p>\n    <input type=\"text\" id=\"last-name\"> "
     + alias3(((helper = (helper = helpers['last-name'] || (depth0 != null ? depth0['last-name'] : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"last-name","hash":{},"data":data}) : helper)))
-    + "\n    <p>E-Mail:</p>\n    <input type=\"text\" id=\"e-mail\"> "
-    + alias3(((helper = (helper = helpers['e-mail'] || (depth0 != null ? depth0['e-mail'] : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"e-mail","hash":{},"data":data}) : helper)))
+    + "\n    <p>Address:</p>\n    <input type=\"text\" id=\"address\"> "
+    + alias3(((helper = (helper = helpers.address || (depth0 != null ? depth0.address : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"address","hash":{},"data":data}) : helper)))
+    + "\n    <p>Phone Number:</p>\n    <input type=\"text\" id=\"phone\"> "
+    + alias3(((helper = (helper = helpers.phone || (depth0 != null ? depth0.phone : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"phone","hash":{},"data":data}) : helper)))
     + "\n    <button id=\"submit\">Submit</button>\n</form>\n";
 },"useData":true});
 // whole form
@@ -33,13 +35,15 @@ var FormView = Backbone.View.extend({
 
     var firstName = this.$('#first-name').val();
     var lastName = this.$('#last-name').val();
-    var email = this.$('#e-mail').val();
+    var address = this.$('#address').val();
+    var phone = this.$('#phone').val('');
 
-    this.model.save({firstName: firstName, lastName: lastName, email: email});
+    this.model.save({firstName: firstName, lastName: lastName, address: address, phone: phone});
 
     this.$('#first-name').val('');
     this.$('#last-name').val('');
-    this.$('#e-mail').val('');
+    this.$('#address').val('');
+    this.$('#phone').val('');
 
     this.model = new Person();
   },
@@ -65,7 +69,8 @@ var Person = Backbone.Model.extend({
   defaults: {
     firstName: '',
     lastName: '',
-    email: ''
+    address: '',
+    phone: ''
   },
 
   // url vs url root
