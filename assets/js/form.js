@@ -10,25 +10,25 @@ var FormView = Backbone.View.extend({
   },
 
   events: {
-    'submit form': 'newForm'
+    'submit form': 'createPerson'
 
     // 'form .submit': 'submitForm'
   },
 
-  newForm: function(ev) {
+  createPerson: function(ev) {
     ev.preventDefault();
 
-    var firstName = this.$('#firstName').val();
-    var lastName = this.$('#lastName').val();
+    var firstName = this.$('#first-name').val();
+    var lastName = this.$('#last-name').val();
     var email = this.$('#e-mail').val();
 
     this.model.save({firstName: firstName, lastName: lastName, email: email});
 
-    this.$('#firstName').val('');
-    this.$('#lastName').val('');
+    this.$('#first-name').val('');
+    this.$('#last-name').val('');
     this.$('#e-mail').val('');
 
-    this.model = new Form();
+    this.model = new Person();
   },
 
   // onSubmit: function(ev) {
