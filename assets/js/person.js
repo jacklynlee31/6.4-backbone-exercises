@@ -6,7 +6,8 @@ var Person = Backbone.Model.extend({
   defaults: {
     firstName: '',
     lastName: '',
-    email: ''
+    address: '',
+    phone: ''
   },
 
   // url vs url root

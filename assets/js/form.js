@@ -20,13 +20,15 @@ var FormView = Backbone.View.extend({
 
     var firstName = this.$('#first-name').val();
     var lastName = this.$('#last-name').val();
-    var email = this.$('#e-mail').val();
+    var address = this.$('#address').val();
+    var phone = this.$('#phone').val('');
 
-    this.model.save({firstName: firstName, lastName: lastName, email: email});
+    this.model.save({firstName: firstName, lastName: lastName, address: address, phone: phone});
 
     this.$('#first-name').val('');
     this.$('#last-name').val('');
-    this.$('#e-mail').val('');
+    this.$('#address').val('');
+    this.$('#phone').val('');
 
     this.model = new Person();
   },
