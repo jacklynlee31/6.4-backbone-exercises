@@ -65,7 +65,7 @@ var Person = Backbone.Model.extend({
   },
 
   // url vs url root
-  urlRoot: 'http://tiny-lr.herokuapp.com/collection/jc-form'
+  urlRoot: 'http://tiny-lr.herokuapp.com/collections/jc-form'
 });
 
 // encompases 'everything'
