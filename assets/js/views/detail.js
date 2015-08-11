@@ -10,7 +10,13 @@ var DetailView = Backbone.View.extend({
   },
 
   render: function() {
-    var html = this.template(this.model.toJSON());
+    var data = {};
+
+    if (this.model) {
+      data = this.model.toJSON();
+    }
+
+    var html = this.template(data);
     this.$el.html(html);
 
     return this;

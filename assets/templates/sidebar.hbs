@@ -1,8 +1,9 @@
 {{!-- Post Titles, Date --}}
+{{!-- for each --}}
 
-<div class="sidebar">
-    <p>Title:</p>
-    <span id="title">{{ title }}</span>
-    <p>Date:</p>
-    <span id="date">{{ date }}</span>
-</div>
+{{#each this as |post|}}
+    <div class="sidebar">
+        <p>Title:</p>
+        <a href="#{{ post._id }}/view" class="title">{{ post.title }}</a>
+    </div>
+{{/each}}

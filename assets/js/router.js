@@ -1,76 +1,40 @@
 var AppRouter = Backbone.Router.extend({
   initialize: function() {
     this.collection = new AllPosts();
+    this.sidebarView = new SidebarView({
+      collection: this.collection
+    });
+
+    this.collection.fetch();
   },
+
+  //place to store the views
 
   currentView: null,
   sidebarView: null,
 
+  //when the url looks like this, then
+  //call the 'view function on the current router'
+
   routes: {
-    '': 'index',
-    'new': 'create',
-    ':id/edit': 'edit'
+    ':id/view': 'view'
   },
-
-  index: function() {
+  view: function(id) {
     var _this = this;
-    this.collection.fetch().then(function() {
-      /* this is a Backbone Collection */
-      var view = new AllPosts({
-        collection: _this.collection
+
+    var showDetail = function() {
+      // this will run when your url matches id/view
+      // look up blog entry in collection
+      var model = _this.collection.get(id);
+
+      //set up view, send data into the view
+
+      new DetailView({
+        model: model
       });
+    };
 
-      _this.renderView(view);
-      _this.renderSidebar();
-    });
-  },
-
-  create: function() {
-    var view = new NoteForm({
-      model: this.collection.add({})
-    });
-
-    this.renderView(view);
-    this.renderSidebar();
-  },
-
-  edit: function(id) {
-    var _this = this;
-    this.collection.fetch().then(function() {
-      var view =  new NoteForm({
-        model: _this.collection.get(id)
-      });
-
-      var sidebar = new NoteIndex({
-        collection: _this.collection
-      });
-
-      _this.renderView(view);
-      _this.renderSidebar(sidebar);
-    });
-  },
-
-  renderView: function(view) {
-    if (this.currentView && this.currentView.remove) {
-      this.currentView.remove();
-    }
-
-    this.currentView = view;
-    this.currentView.render();
-    $('#target').html(this.currentView.el);
-  },
-
-  renderSidebar: function(view) {
-    if (this.sidebarView && this.sidebarView.remove) {
-      this.sidebarView.remove();
-    }
-
-    if (view) {
-      this.sidebarView = view;
-      this.sidebarView.render();
-      $('#sidebar').html(this.sidebarView.el);
-    }
+    showDetail();
+    this.listenTo(this.collection, 'sync add', showDetail);
   }
 });
-
-this.hello = 'world';
