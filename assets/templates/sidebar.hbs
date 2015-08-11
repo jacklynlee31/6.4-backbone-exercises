@@ -3,7 +3,6 @@
 
 {{#each this as |post|}}
     <div class="sidebar">
-        <p>Title:</p>
-        <a href="#{{ post._id }}/view" class="title">{{ post.title }}</a>
+        <p class="text-sidebar">Read this Post: <a href="#{{ post._id }}/view" class="title">{{ post.title }}</a></p>
     </div>
 {{/each}}
