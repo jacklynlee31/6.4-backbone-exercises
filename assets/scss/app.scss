@@ -3,3 +3,49 @@
 @import 'bourbon';
 @import 'neat';
 @import 'border-box';
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+  background-color: #004080;
+}
+.everything {
+    @include outer-container (960px);
+    font-family: helvetica;
+    padding-top: 3em;
+}
+.sidebar {
+    border: 1px solid black;
+    padding: 1em;
+    text-align: center;
+    background-color: white;
+    @include span-columns(6);
+}
+.blog-post {
+    padding: 1em;
+    border: 1px solid black;
+    background-color: white;
+}
+.text-sidebar {
+    font-weight: bold;
+    background-color: white;
+}
+.text-sidebar a {
+    background-color: white;
+    text-decoration: none;
+    color: #004080;
+}
+.detail-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    padding-bottom: .5em;
+    padding-top: 2em;
+    background-color: white;
+}
+.detail-body {
+    text-indent: 4em;
+    line-height: 2em;
+    background-color: white;
+}
