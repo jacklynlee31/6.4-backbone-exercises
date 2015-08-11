@@ -7,5 +7,12 @@ var SidebarView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
+  },
+
+  render: function() {
+    var html = this.template(this.collection.toJSON());
+    this.$el.html(html);
+
+    return this;
   }
 });

@@ -1,6 +1,6 @@
 // collection
 
-var BlogPosts = Backbone.Collection.extend({
+var AllPosts = Backbone.Collection.extend({
   model: Post,
   url: 'http://tiny-lr.herokuapp.com/collections/jc-blog'
 });
