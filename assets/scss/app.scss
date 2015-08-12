@@ -3,3 +3,49 @@
 @import 'bourbon';
 @import 'neat';
 @import 'border-box';
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+  background-color: #008080;
+}
+
+.everything {
+    @include outer-container (900px);
+    margin-top: 4em;
+    padding: 1em;
+    font-family: helvetica;
+    background-color: white;
+}
+form {
+    @include span-columns(6 of 12);
+    padding: 1em;
+    border: 1px solid green;
+    line-height: 2em;
+    background-color: white;
+}
+form input {
+    border: 1px solid #008080;
+    background-color: white;
+}
+.p-title, .p-url, .p-tag {
+    background-color: white;
+}
+.button {
+    display: block;
+    padding-top: 1em;
+    background-color: white;
+}
+button {
+    font-size: 1em;
+    background-color: white;
+    border: 1px solid #008080;
+}
+.taglist {
+    @include span-columns(3 of 12);
+    padding: 1em;
+    border: 1px solid yellow;
+    background-color: white;
+}

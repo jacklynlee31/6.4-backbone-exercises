@@ -26,6 +26,7 @@ var appJs = concat(assetsWithTemplates, {
     'js/views/tag.js',
     'js/views/taglist.js',
     'js/model/info.js',
+    'js/app.js',
     'js/collection/infosets.js',
     'js/router.js',
     'js/index.js'
