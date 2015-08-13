@@ -4,6 +4,7 @@ var AppRouter = Backbone.Router.extend({
     this.taglistView = new TaglistView({
       collection: this.collection
     });
+    this.form = new FormView({collection: this.collection});
 
     this.collection.fetch();
   },

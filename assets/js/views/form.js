@@ -20,22 +20,25 @@ var FormView = Backbone.View.extend({
     var title = this.$('#title').val();
     var tag = this.$('#tag').val();
 
-    this.model.save({url: url, title: title, tag: tag});
+    this.collection.create({url: url, title: title, tag: tag});
 
     this.$('#url').val('');
     this.$('#title').val('');
     this.$('#tag').val('');
-    this.model = new Tag();
+    this.collection = new Tag();
   },
 
+  // use a collection instead of a model
   render: function() {
-    var html = this.template(this.model.toJSON());
+    var html = this.template(this.collection);
     this.$el.html(html);
 
     return this;
   }
 
 });
+
+// .toJSON()
 
   // render: function() {
   //   var data = {};
