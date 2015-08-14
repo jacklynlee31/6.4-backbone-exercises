@@ -39,16 +39,15 @@ var AppRouter = Backbone.Router.extend({
     var _this = this;
     console.log('show filter');
 
-    // var filteredResults = allResults.filter(function (current)) {
-    //   return current.title.toLowerCase().indexOf(inputStr) > -1;
-    // }
-    // render(filteredResults);
-
     var showTaglist = function() {
       // this will run when your url matches id/view
       // look up blog entry in collection
 
       var collection = _this.collection.filter(function(model) {
+        if (!tag) {
+          return true;
+        }
+
         return model.get('tag') === tag;
       });
 
