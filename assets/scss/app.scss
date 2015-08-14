@@ -13,16 +13,17 @@ html {
 }
 
 .everything {
-    @include outer-container (900px);
+    @include outer-container (600px);
     margin-top: 4em;
     padding: 1em;
+    border: 1px solid black;
     font-family: helvetica;
     background-color: white;
 }
 form {
-    @include span-columns(6 of 12);
+    @include span-columns(7 of 12);
     padding: 1em;
-    border: 1px solid green;
+    padding-left: 3em;
     line-height: 2em;
     background-color: white;
 }
@@ -44,8 +45,24 @@ button {
     border: 1px solid #008080;
 }
 .taglist {
-    @include span-columns(3 of 12);
+    @include span-columns(5 of 12);
     padding: 1em;
-    border: 1px solid yellow;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
     background-color: white;
+}
+.taglist a, li {
+    background-color: white;
+    line-height: 2em;
+    text-decoration: none;
+    color: black;
+}
+.clickme {
+    font-weight: bold;
+}
+.bookmark-list a {
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    padding-left: 2em;
 }

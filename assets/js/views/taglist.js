@@ -6,12 +6,12 @@ var TaglistView = Backbone.View.extend({
   el: '#taglist-target',
 
   initialize: function() {
+    console.log(this.collection);
     this.render();
-    this.listenTo(this.collection, 'sync add', this.render);
   },
 
   render: function() {
-    var html = this.template(this.collection.toJSON());
+    var html = this.template(this.collection);
     this.$el.html(html);
 
     return this;

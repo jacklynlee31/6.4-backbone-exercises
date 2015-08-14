@@ -1,12 +1,20 @@
 var AppRouter = Backbone.Router.extend({
   initialize: function() {
     this.collection = new InfoSets();
-    this.taglistView = new TaglistView({
-      collection: this.collection
-    });
-    this.form = new FormView({collection: this.collection});
+    this.renderTaglist();
 
+    this.listenTo(this.collection, 'sync', this.renderTaglist);
     this.collection.fetch();
+  },
+
+  renderTaglist: function() {
+    var tags = this.collection.chain().clone().map(function(bookmark) {
+      return bookmark.get('tag');
+    }).unique().value();
+
+    this.taglistView = new TaglistView({
+      collection: tags
+    });
   },
 
   //place to store the views
@@ -19,20 +27,35 @@ var AppRouter = Backbone.Router.extend({
   //call the 'view function on the current router'
 
   routes: {
-    ':id/view': 'view'
+    new: 'create',
+    '(:id)': 'filter'
   },
-  view: function(id) {
+
+  create: function() {
+    this.form = new FormView({collection: this.collection});
+  },
+
+  filter: function(tag) {
     var _this = this;
+    console.log('show filter');
+
+    // var filteredResults = allResults.filter(function (current)) {
+    //   return current.title.toLowerCase().indexOf(inputStr) > -1;
+    // }
+    // render(filteredResults);
 
     var showTaglist = function() {
       // this will run when your url matches id/view
       // look up blog entry in collection
-      var model = _this.collection.get(id);
+
+      var collection = _this.collection.filter(function(model) {
+        return model.get('tag') === tag;
+      });
 
       //set up view, send data into the view
 
-      new TaglistView({
-        model: model
+      new BookmarkListView({
+        collection: collection
       });
     };
 
