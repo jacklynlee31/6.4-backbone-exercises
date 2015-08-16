@@ -24,11 +24,27 @@ var AppRouter = Backbone.Router.extend({
   //call the 'view function on the current router'
 
   routes: {
-    ':id/view': 'view'
+    ':id/view': 'view',
+    ':id/create': 'create'
   },
 
-  create: function() {
-    this.form = new FormView({collection: this.collection});
+  create: function(id) {
+    var _this = this;
+
+    // this.form = new FormView({collection: this.collection});
+
+    var showForm = function() {
+      var model = _this.collection.get(id);
+
+      new CreateView({
+        model: model
+      });
+    };
+
+    showForm();
+    this.listenTo(this.collection, 'sync add', showForm);
+
+    $('#create-target').html(view.el);
   },
 
   view: function(id) {

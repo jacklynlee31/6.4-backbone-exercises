@@ -32,7 +32,3 @@ var CreateView = Backbone.View.extend({
     return this;
   }
 });
-
-var view = new CreateView({
-    el: '#create-target'
-  });
