@@ -24,7 +24,6 @@ var AppRouter = Backbone.Router.extend({
   //call the 'view function on the current router'
 
   routes: {
-    new: 'create',
     ':id/view': 'view'
   },
 
