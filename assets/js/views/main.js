@@ -1,5 +1,5 @@
 var MainView = Backbone.View.extend({
-  template: AppTemplates.detail,
+  template: AppTemplates.main,
 
   el: '#main-target',
 
