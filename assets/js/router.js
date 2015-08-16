@@ -24,8 +24,14 @@ var AppRouter = Backbone.Router.extend({
   //call the 'view function on the current router'
 
   routes: {
+    new: 'create',
     ':id/view': 'view'
   },
+
+  create: function() {
+    this.form = new FormView({collection: this.collection});
+  },
+
   view: function(id) {
     var _this = this;
 
@@ -36,7 +42,7 @@ var AppRouter = Backbone.Router.extend({
 
       //set up view, send data into the view
 
-      new PostView({
+      new CreateView({
         model: model
       });
     };

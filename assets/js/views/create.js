@@ -5,7 +5,8 @@ var CreateView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
-    this.listenTo(this.collection, 'sync add', this.render);
+
+    // this.listenTo(this.collection, 'sync add', this.render);
   },
 
   events: {
@@ -18,16 +19,16 @@ var CreateView = Backbone.View.extend({
     var title = this.$('#title').val();
     var body = this.$('#body').val();
 
-    this.model.save({title: title, body: body});
+    this.collection.create({title: title, body: body});
 
     this.$('#title').val('');
     this.$('#body').val('');
 
-    this.model = new Post();
+    this.collection = new Post();
   },
 
   render: function() {
-    var html = this.template(this.collection.toJSON());
+    var html = this.template(this.collection);
     this.$el.html(html);
 
     return this;

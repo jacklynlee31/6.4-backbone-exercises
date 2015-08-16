@@ -32,11 +32,20 @@ html {
     background-color: white;
     @include span-columns(4 of 12);
 }
-.create-title, .create, .create-body {
+#title, .create, #body {
     background-color: white;
     display: block;
     margin-bottom: 2em;
 }
+.title {
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
 button {
+    background-color: white;
+}
+.sidebar, .text-sidebar {
     background-color: white;
 }
