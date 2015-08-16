@@ -3,3 +3,26 @@
 @import 'bourbon';
 @import 'neat';
 @import 'border-box';
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+#read-target {
+    @include span-columns(4 of 12);
+    padding-top: 4em;
+    background-color: #ff7256;
+}
+#create-target {
+    @include span-columns(4 of 12);
+    padding-top: 9em;
+    background-color: #7fffd4;
+}
+#sidebar-target {
+    @include span-columns(4 of 12);
+    padding-top: 4em;
+    background-color: #ADD8E6;
+}
