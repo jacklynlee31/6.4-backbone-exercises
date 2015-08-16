@@ -6,10 +6,10 @@
 
 html {
   box-sizing: border-box;
+  background-color: #7FE8BF;
 }
 *, *:before, *:after {
   box-sizing: inherit;
-  background-color: #7FE8BF;
 }
 
 .temps {
@@ -22,7 +22,7 @@ html {
 
 #main-target {
     background-color: white;
-    @include span-columns(4 of 12);
+    @include span-columns(5 of 12);
 }
 #create-target {
     background-color: white;
@@ -30,7 +30,7 @@ html {
 }
 #sidebar-target {
     background-color: white;
-    @include span-columns(4 of 12);
+    @include span-columns(3 of 12);
 }
 #title, .create, #body {
     background-color: white;
@@ -38,14 +38,17 @@ html {
     margin-bottom: 2em;
 }
 .title {
-    background-color: white;
     text-decoration: none;
     color: black;
     font-weight: bold;
 }
+.title:hover {
+    color: #7FE8BF;
+}
 button {
     background-color: white;
+    border: 2px solid #7FE8BF;
 }
-.sidebar, .text-sidebar {
-    background-color: white;
+.main-title {
+    padding-bottom: 1em;
 }

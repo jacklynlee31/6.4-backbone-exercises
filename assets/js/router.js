@@ -41,7 +41,7 @@ var AppRouter = Backbone.Router.extend({
 
       //set up view, send data into the view
 
-      new CreateView({
+      new MainView({
         model: model
       });
     };

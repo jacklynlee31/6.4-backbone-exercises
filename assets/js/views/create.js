@@ -1,8 +1,6 @@
 var CreateView = Backbone.View.extend({
   template: AppTemplates.create,
 
-  el: '#create-target',
-
   initialize: function() {
     this.render();
 
@@ -34,3 +32,7 @@ var CreateView = Backbone.View.extend({
     return this;
   }
 });
+
+var view = new CreateView({
+    el: '#create-target'
+  });
