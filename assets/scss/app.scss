@@ -9,20 +9,34 @@ html {
 }
 *, *:before, *:after {
   box-sizing: inherit;
+  background-color: #7FE8BF;
 }
 
-#read-target {
+.temps {
+    background-color: white;
+    margin-top: 3em;
+    padding: 1em;
+    border: 1px solid black;
+    @include outer-container (980px);
+}
+
+#main-target {
+    background-color: white;
     @include span-columns(4 of 12);
-    padding-top: 4em;
-    background-color: #ff7256;
 }
 #create-target {
+    background-color: white;
     @include span-columns(4 of 12);
-    padding-top: 9em;
-    background-color: #7fffd4;
 }
 #sidebar-target {
+    background-color: white;
     @include span-columns(4 of 12);
-    padding-top: 4em;
-    background-color: #ADD8E6;
+}
+.create-title, .create, .create-body {
+    background-color: white;
+    display: block;
+    margin-bottom: 2em;
+}
+button {
+    background-color: white;
 }
