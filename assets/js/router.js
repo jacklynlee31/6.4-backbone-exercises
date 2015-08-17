@@ -25,10 +25,10 @@ var AppRouter = Backbone.Router.extend({
 
   routes: {
     ':id/view': 'view',
-    ':id/create': 'create'
+    new: 'create'
   },
 
-  create: function(id) {
+  new: function(id) {
     var _this = this;
 
     // this.form = new FormView({collection: this.collection});
