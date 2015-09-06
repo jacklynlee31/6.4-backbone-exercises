@@ -1,8 +1,6 @@
 var MainView = Backbone.View.extend({
   template: AppTemplates.main,
 
-  el: '#main-target',
-
   initialize: function() {
     this.render();
   },

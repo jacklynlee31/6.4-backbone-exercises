@@ -4,12 +4,6 @@ var AppRouter = Backbone.Router.extend({
     this.sidebarView = new SidebarView({
       collection: this.collection
     });
-    this.createView = new CreateView({
-      collection: this.collection
-    });
-    this.mainView = new MainView({
-      collection: this.collection
-    });
     this.collection.fetch();
   },
 
@@ -25,26 +19,20 @@ var AppRouter = Backbone.Router.extend({
 
   routes: {
     ':id/view': 'view',
-    new: 'create'
+    new: 'create',
+    ':id/edit': 'edit'
   },
 
-  new: function(id) {
+  create: function(id) {
     var _this = this;
 
     // this.form = new FormView({collection: this.collection});
 
-    var showForm = function() {
-      var model = _this.collection.get(id);
+    var view = new CreateView({
+      collection: _this.collection
+    });
 
-      new CreateView({
-        model: model
-      });
-    };
-
-    showForm();
-    this.listenTo(this.collection, 'sync add', showForm);
-
-    $('#create-target').html(view.el);
+    $('#main-target').html(view.el);
   },
 
   view: function(id) {
@@ -57,12 +45,24 @@ var AppRouter = Backbone.Router.extend({
 
       //set up view, send data into the view
 
-      new MainView({
+      var view = new MainView({
         model: model
       });
+
+      $('#main-target').html(view.el);
     };
 
     showPost();
     this.listenTo(this.collection, 'sync add', showPost);
+  },
+
+  edit: function(id) {
+    var _this = this;
+
+    var edit = new EditView({
+      collection: _this.collection
+    });
+
+    $('#edit-target').html(edit.el);
   }
 });
