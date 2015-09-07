@@ -13,6 +13,7 @@ var AppRouter = Backbone.Router.extend({
   mainView: null,
   createView: null,
   sidebarView: null,
+  editView: null,
 
   //when the url looks like this, then
   //call the 'view function on the current router'
@@ -63,6 +64,6 @@ var AppRouter = Backbone.Router.extend({
       collection: _this.collection
     });
 
-    $('#edit-target').html(edit.el);
+    $('#main-target').html(edit.el);
   }
 });
