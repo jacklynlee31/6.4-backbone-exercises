@@ -2,12 +2,19 @@ var EditView = Backbone.View.extend({
   template: AppTemplates.edit,
 
   events: {
-    'remove entry': 'deletePost'
+    'click button.delete': 'deletePost',
+    'click button.save': 'savePost'
   },
   deletePost: function(ev) {
     ev.preventDefault();
 
     this.model.destroy({title: title, body: body});
+  },
+
+  savePost: function(ev) {
+    ev.preventDefault();
+
+    this.model.save({title: title, body: body});
   },
 
   initialize: function() {
