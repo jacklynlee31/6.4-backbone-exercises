@@ -60,10 +60,17 @@ var AppRouter = Backbone.Router.extend({
   edit: function(id) {
     var _this = this;
 
+    var editPost = function() {
+      var model = _this.collection.get(id);
+
     var edit = new EditView({
       collection: _this.collection
     });
 
     $('#main-target').html(edit.el);
-  }
+  };
+
+    editPost();
+    this.listenTo(this.collection, 'sync add', editPost);
+  },
 });
