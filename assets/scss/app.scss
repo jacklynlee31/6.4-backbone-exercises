@@ -3,3 +3,58 @@
 @import 'bourbon';
 @import 'neat';
 @import 'border-box';
+
+html {
+  box-sizing: border-box;
+  background-color: #7FE8BF;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.temps {
+    background-color: white;
+    margin-top: 3em;
+    padding: 1em;
+    border: 1px solid black;
+    @include outer-container (980px);
+}
+
+#main-target {
+    background-color: white;
+    @include span-columns(5 of 12);
+}
+#create-target {
+    background-color: white;
+    @include span-columns(4 of 12);
+}
+#sidebar-target {
+    background-color: white;
+    @include span-columns(3 of 12);
+}
+#title, .create, #body {
+    background-color: white;
+    display: block;
+    margin-bottom: 2em;
+}
+.title {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.title:hover {
+    color: #7FE8BF;
+}
+button {
+    background-color: white;
+    border: 2px solid #7FE8BF;
+}
+.main-title {
+    padding-bottom: 1em;
+}
+.edit {
+    padding-top: 2em;
+}
+.delete {
+    padding-top: 1em;
+}

@@ -1,0 +1,9 @@
+{{#each this as |post|}}
+    <div class="sidebar">
+        <p class="text-sidebar">
+            <a href="#{{ post._id }}/view" class="title">{{ post.title }}</a>
+        </p>
+    </div>
+{{/each}}
+<br>
+<a href="#new" class="submit">New Post</a>
